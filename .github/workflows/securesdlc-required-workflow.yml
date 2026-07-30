@@ -5,6 +5,9 @@ on:
   workflow_dispatch: {}
   workflow_call: {}
   pull_request: {}
+  # Needed by repos with a merge queue: the gate re-runs on the gh-readonly-queue
+  # ref, so a workflow that never fires there can never report and entries deadlock.
+  merge_group: {}
   # pull_request_target: {} # Gives workflows excessive permissions. Not wanted.
 
 jobs:
